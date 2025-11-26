@@ -1,5 +1,9 @@
 # Tax-Aware Factor Portfolio Builder
 
+Tax-Aware Factor Portfolio Builder is a Python toolkit for designing implementable, factor-tilted portfolios with an after-tax lens. It ingests global Fama–French factor data, estimates fund-level betas, solves constrained allocations (with weight floors to avoid dust), and assigns assets across taxable, tax-deferred, and tax-free accounts to minimize tax drag. Built for practitioners and researchers, it balances factor targets, asset/manager/region constraints, and practical implementation considerations in a reproducible workflow.
+
+For example usage, see: [Tax-Aware Factor Portfolio Builder Notebook](https://github.com/engineerinvestor/tax-aware-factor-builder/blob/main/notebooks/tax_aware_factor_portfolio.ipynb)
+
 Educational use only; not tax, legal, or investment advice.
 
 ## Quickstart
@@ -44,3 +48,7 @@ If you run into a broken pip bundle on macOS (missing `pip._vendor.*` errors), r
 ## Notes
 - Network may be required for `yfinance` mode.
 - Sample CSVs are included for offline testing.***
+
+## Contact
+
+Twitter/X: Engineer Investor (@egr_investor)[https://x.com/egr_investor]
