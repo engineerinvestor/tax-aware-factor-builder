@@ -15,6 +15,28 @@ Educational use only; not tax, legal, or investment advice.
 - Install deps: `pip install -r requirements.txt`
 - Run tests: `pytest`
 
+## Architecture
+```mermaid
+flowchart TD
+  subgraph Inputs
+    A["Fund prices<br/>(yfinance or CSV)"]
+    B["Factor data<br/>(Ken French US/Dev/Dev ex-US/EM)"]
+    C["Investor profile<br/>+ accounts"]
+    D["Target spec<br/>(asset + factor + weight floor)"]
+  end
+
+  A --> E["data_loaders.py<br/>returns"]
+  B --> F["factors.py<br/>regional factors"]
+  E --> G["apply_factor_estimation<br/>per fund"]
+  F --> G
+  G --> H["optimization.py<br/>cvxpy solve weights"]
+  D --> H
+  C --> I["tax_location.py<br/>account allocation"]
+  H --> I
+  I --> J["reporting.py<br/>text summary + charts"]
+  J --> K["Notebook UI<br/>notebooks/tax_aware_factor_portfolio.ipynb"]
+```
+
 ## Notebook
 - Launch Jupyter (inside venv): `jupyter notebook`
 - Open `notebooks/tax_aware_factor_portfolio.ipynb`.
